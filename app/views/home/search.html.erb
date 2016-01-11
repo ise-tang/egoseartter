@@ -1,5 +1,19 @@
-<% @tweets.each do |tweet| %>
-  <p><%=tweet.user.name %></p>
-  <p><%=tweet.full_text %></p>
+<%= form_tag search_path do %>
+  <%= text_field_tag :word, @word %>
+  <%= hidden_field_tag :max_id, @max_id %>
+  <%= submit_tag 'エゴサする' %>
+<% end %>
+
+<% if @error %>
+  <p><%= @error %></p>
+<% else %>
+  <p><%= @tweets.count %>件ヒットしました</p>
+  <% @tweets.each do |tweet| %>
+  <div class='tweet' >
+    <img src='<%= tweet.user.profile_image_url %>' alt='profile_image' />
+    <span><%=tweet.user.name %></span>
+    <p><%=tweet.full_text %></p>
+  </div>
+  <% end %>
 <% end %>
 

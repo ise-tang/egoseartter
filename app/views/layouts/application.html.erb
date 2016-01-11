@@ -9,7 +9,7 @@
 <body>
 
 <% if current_user %>
-  <%= "#{current_user.uid} #{current_user.name}" %> <%= link_to 'ログアウト', logout_path %>
+  <%= "#{current_user.name}" %> <%= link_to 'ログアウト', logout_path %>
 <% else %>
   <%= link_to 'ログイン', '/auth/twitter' %>
 <% end %>

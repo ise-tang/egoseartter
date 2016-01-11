@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/index'
   get "/tweet", :to => 'home#tweet', :as => 'tweet'
-  get "/search", :to => 'home#search', :as => 'search'
+  post "/search", :to => 'home#search', :as => 'search'
   get '/auth/:provider/callback', :to => 'sessions#callback'
   post '/auth/:provider/callback', :to => 'sessions#callback'
   get '/logout' => 'sessions#destroy', :as => :logout
