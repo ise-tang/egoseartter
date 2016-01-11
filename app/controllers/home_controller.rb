@@ -21,6 +21,7 @@ class HomeController < BaseController
         @error = "API制限です" 
       else
         @error = e.message
+      end
     end
   end
 
