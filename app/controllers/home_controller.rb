@@ -3,7 +3,8 @@ class HomeController < BaseController
 
   def search
     max_id = params['max_id'].present? ? params['max_id'] : nil
-    word = @word = params['word']
+    @word = params['word'] 
+    word = @word + ' -filter:retweets'
     
     begin
       results = twitter_client.search(word, {max_id: max_id, count: 100}).statuses
@@ -16,7 +17,10 @@ class HomeController < BaseController
       follower_ids =  @current_user.follower_ids.split(' ').map {|id| id.to_i}
       @tweets = results.select {|tweet| follower_ids.include?(tweet.user.id)}
     rescue Twitter::Error => e
-      @error = "API制限です" if e.message.match(/Rate limit exceeded/)
+      if e.message.match(/Rate limit exceeded/)
+        @error = "API制限です" 
+      else
+        @error = e.message
     end
   end
 
