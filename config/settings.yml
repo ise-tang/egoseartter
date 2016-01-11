@@ -1,0 +1,17 @@
+defaults: &defaults
+
+development:
+  twitter:
+    consumer_key: <%= ENV["TWITTER_CONSUMER_KEY"] %>
+    consumer_secret: <%= ENV["TWITTER_CONSUMER_SECRET"] %>
+
+test:
+  twitter:
+    consumer_key: <%= ENV["TWITTER_CONSUMER_KEY"] %>
+    consumer_secret: <%= ENV["TWITTER_CONSUMER_SECRET"] %>
+
+production:
+  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+  twitter:
+    consumer_key: <%= ENV["TWITTER_CONSUMER_KEY"] %>
+    consumer_secret: <%= ENV["TWITTER_CONSUMER_SECRET"] %>
