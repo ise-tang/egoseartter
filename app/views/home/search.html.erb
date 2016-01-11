@@ -13,6 +13,7 @@
     <img src='<%= tweet.user.profile_image_url %>' alt='profile_image' />
     <span><%=tweet.user.name %></span>
     <p><%=tweet.full_text %></p>
+    <a href='https://twitter.com/<%= tweet.user.screen_name %>/status/<%= tweet.id %>'>Twitterで開く</a>
   </div>
   <% end %>
 <% end %>

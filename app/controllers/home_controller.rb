@@ -14,7 +14,6 @@ class HomeController < BaseController
         @current_user.save!
       end 
       follower_ids =  @current_user.follower_ids.split(' ').map {|id| id.to_i}
-      binding.pry
       @tweets = results.select {|tweet| follower_ids.include?(tweet.user.id)}
     rescue Twitter::Error => e
       @error = "API制限です" if e.message.match(/Rate limit exceeded/)

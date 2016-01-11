@@ -1,6 +1,10 @@
-<h1>Home#index</h1>
+<h1>egoseartter</h1>
 
-<%= form_tag search_path do %>
-  <%= text_field_tag :word %>
-  <%= submit_tag 'エゴサする' %>
+<% if current_user %>
+  <%= form_tag search_path do %>
+    <%= text_field_tag :word %>
+    <%= submit_tag 'エゴサする' %>
+  <% end %>
+<% else %>
+  <p>ログインしてください</p>
 <% end %>
