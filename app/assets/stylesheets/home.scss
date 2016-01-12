@@ -1,3 +1,27 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.search_form {
+  padding-bottom: 5px;
+}
+
+.tweet {
+  border-top: solid 0.5px #CC9999;
+  padding: 2px;
+}
+
+.profile_image {
+  float: left;
+  margin-top: 7px;
+}
+
+.div {
+}
+
+.name {
+  font-size: 0.9em;
+}
+.screen_name {
+  font-size: 0.7em;
+}

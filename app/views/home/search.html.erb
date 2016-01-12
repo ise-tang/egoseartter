@@ -1,4 +1,4 @@
-<%= form_tag search_path do %>
+<%= form_tag search_path, class: :search_form do %>
   <%= text_field_tag :word, @word %>
   <%= hidden_field_tag :max_id, @max_id %>
   <%= submit_tag 'エゴサする' %>
@@ -7,14 +7,23 @@
 <% if @error %>
   <p><%= @error %></p>
 <% else %>
-  <p><%= @tweets.count %>件ヒットしました</p>
-  <% @tweets.each do |tweet| %>
-  <div class='tweet' >
-    <img src='<%= tweet.user.profile_image_url %>' alt='profile_image' />
-    <span><%=tweet.user.name %></span>
-    <p><%=tweet.full_text %></p>
-    <a href='https://twitter.com/<%= tweet.user.screen_name %>/status/<%= tweet.id %>'>Twitterで開く</a>
-  </div>
+  <div id='container' >
+    <% @tweets.each do |tweet| %>
+    <div class='tweet' >
+      <img class='profile_image' src='<%= tweet.user.profile_image_url %>' alt='profile_image' />
+      <div class='contents' >
+        <span class='name'><%=tweet.user.name %></span><span class='screen_name'>@<%=tweet.user.screen_name %></span>
+        <p><%=tweet.full_text %></p>
+      </div>
+      <a href='https://twitter.com/<%= tweet.user.screen_name %>/status/<%= tweet.id %>'>Twitterで開く</a>
+    </div>
+    <% end %>
+
+  <%= form_tag search_path do %>
+    <%= hidden_field_tag :word, @word %>
+    <%= hidden_field_tag :max_id, @max_id %>
+    <%= submit_tag 'さらにエゴサ' %>
   <% end %>
+   </div>
 <% end %>
 
