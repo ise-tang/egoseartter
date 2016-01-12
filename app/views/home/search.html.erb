@@ -19,7 +19,7 @@
     </div>
     <% end %>
 
-  <%= form_tag search_path do %>
+  <%= form_tag search_path, class: :more do %>
     <%= hidden_field_tag :word, @word %>
     <%= hidden_field_tag :max_id, @max_id %>
     <%= submit_tag 'さらにエゴサ' %>
