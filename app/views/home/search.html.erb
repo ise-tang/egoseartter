@@ -1,6 +1,5 @@
 <%= form_tag search_path, class: :search_form do %>
   <%= text_field_tag :word, @word %>
-  <%= hidden_field_tag :max_id, @max_id %>
   <%= submit_tag 'エゴサする' %>
 <% end %>
 
@@ -8,6 +7,7 @@
   <p><%= @error %></p>
 <% else %>
   <div id='container' >
+    <p>検索結果100件中、フォロワーのツイートは<%= @tweets.count %>件でした.
     <% @tweets.each do |tweet| %>
     <div class='tweet' >
       <img class='profile_image' src='<%= tweet.user.profile_image_url %>' alt='profile_image' />
