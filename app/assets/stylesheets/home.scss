@@ -17,10 +17,18 @@
   width: 10%;
 }
 
+.result_count {
+  font-size: 0.65em;
+}
+
 .contents {
   width: 88%;
   float: left;
   padding-left: 2%; 
+}
+
+.clear_div {
+  clear: both;
 }
 
 .name {
@@ -31,5 +39,6 @@
 }
 
 .more {
+  border-top: solid 0.5px #CC9999;
   text-align: center;
 }
