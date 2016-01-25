@@ -20,6 +20,7 @@
         <a class='reply' href='https://twitter.com/intent/tweet?in_replay_to=<%= tweet.id %>&text=%40<%= tweet.user.screen_name %>%20'>返信</a>
         <a class='retweet' href='https://twitter.com/intent/retweet?tweet_id=<%= tweet.id %>'>リツイート</a>
         <a class='like' href='https://twitter.com/intent/like?tweet_id=<%= tweet.id %>'>いいね</a>
+        <a class='open_official_app' href='twitter://status?id=<%= tweet.id %>'>公式アプリで開く</a>
       </div>
       <div class='clear_div' />
     </div>
